@@ -543,7 +543,11 @@ NTSTATUS IVRApplications_IVRApplications_006_LaunchInternalProcess( void *args )
 {
     struct IVRApplications_IVRApplications_006_LaunchInternalProcess_params *params = (struct IVRApplications_IVRApplications_006_LaunchInternalProcess_params *)args;
     struct u_IVRApplications_IVRApplications_006 *iface = (struct u_IVRApplications_IVRApplications_006 *)params->u_iface;
-    params->_ret = iface->LaunchInternalProcess( params->pchBinaryPath, params->pchArguments, params->pchWorkingDirectory );
+    char *u_pchBinaryPath = vrclient_dos_to_unix_path( params->pchBinaryPath );
+    char *u_pchWorkingDirectory = vrclient_dos_to_unix_path( params->pchWorkingDirectory );
+    params->_ret = iface->LaunchInternalProcess( u_pchBinaryPath, params->pchArguments, u_pchWorkingDirectory );
+    vrclient_free_path( u_pchBinaryPath );
+    vrclient_free_path( u_pchWorkingDirectory );
     return 0;
 }
 
@@ -552,7 +556,11 @@ NTSTATUS wow64_IVRApplications_IVRApplications_006_LaunchInternalProcess( void *
 {
     struct wow64_IVRApplications_IVRApplications_006_LaunchInternalProcess_params *params = (struct wow64_IVRApplications_IVRApplications_006_LaunchInternalProcess_params *)args;
     struct u_IVRApplications_IVRApplications_006 *iface = (struct u_IVRApplications_IVRApplications_006 *)params->u_iface;
-    params->_ret = iface->LaunchInternalProcess( params->pchBinaryPath, params->pchArguments, params->pchWorkingDirectory );
+    char *u_pchBinaryPath = vrclient_dos_to_unix_path( params->pchBinaryPath );
+    char *u_pchWorkingDirectory = vrclient_dos_to_unix_path( params->pchWorkingDirectory );
+    params->_ret = iface->LaunchInternalProcess( u_pchBinaryPath, params->pchArguments, u_pchWorkingDirectory );
+    vrclient_free_path( u_pchBinaryPath );
+    vrclient_free_path( u_pchWorkingDirectory );
     return 0;
 }
 #endif

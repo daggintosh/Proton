@@ -199,6 +199,7 @@ PATH_CONV_METHODS_WTOU = {
     "IVROverlay_SetOverlayFromFile": {"pchFilePath"},
     "IVRApplications_AddApplicationManifest": {"pchApplicationManifestFullPath"},
     "IVRApplications_RemoveApplicationManifest": {"pchApplicationManifestFullPath"},
+    "IVRApplications_LaunchInternalProcess": {"pchBinaryPath", "pchWorkingDirectory"},
     "IVRScreenshots_RequestScreenshot": {"pchVRFilename", "pchPreviewFilename"},
     "IVRScreenshots_TakeStereoScreenshot": {"pchVRFilename", "pchPreviewFilename"},
     "IVRScreenshots_SubmitScreenshot": {"pchSourcePreviewFilename", "pchSourceVRFilename"},
