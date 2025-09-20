@@ -3,7 +3,7 @@
 #NOTE: If you make modifications here, consider whether they should
 #be duplicated in ../lsteamclient/gen_wrapper.py
 
-CLANG_PATH='/usr/lib/clang/15'
+CLANG_PATH='/usr/lib/clang/20'
 
 from clang.cindex import Cursor, CursorKind, Index, TypeKind
 import concurrent.futures
